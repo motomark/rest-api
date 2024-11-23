@@ -95,7 +95,7 @@ telepresence intercept book-deployment --port 443:443 --env-file ~/example-servi
             "mainClass": "com.example.restapi.RestApiApplication",
             "projectName": "rest-api",
             "args": "",
-            "envFile": "/Users/markhawkins/example-service-intercept.env"
+            "envFile": "/Users/motomark/example-service-intercept.env"
         }
     ]
 ```
@@ -139,7 +139,7 @@ OSS User Daemon: Running
   Namespace         : default
   Manager namespace : ambassador
   Intercepts        : 1 total
-    book-deployment: markhawkins@Marks-MacBook-Pro.local
+    book-deployment: motomark@Marks-MacBook-Pro.local
 OSS Root Daemon: Running
   Version    : v2.20.0
   DNS        : 
