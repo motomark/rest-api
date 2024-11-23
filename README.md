@@ -45,9 +45,34 @@ https://medium.com/simform-engineering/testing-spring-boot-applications-best-pra
 
 https://spring.io/guides/gs/spring-boot-docker
 
+
+## K3s
+
+```
+kubectl get nodes
+NAME           STATUS   ROLES                  AGE    VERSION
+k3s-master     Ready    control-plane,master   3d3h   v1.30.6+k3s1
+k3s-worker-1   Ready    <none>                 3d3h   v1.30.6+k3s1
+k3s-worker-2   Ready    <none>                 3d3h   v1.30.6+k3s1
+```
+```
+kubectl get svc                                                                                     
+NAME              TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)         AGE
+book-entrypoint   NodePort    10.43.52.40   <none>        443:30001/TCP   5h4m
+kubernetes        ClusterIP   10.43.0.1     <none>        443/TCP         3d2h
+```
+```
+kubectl get pod
+NAME                               READY   STATUS    RESTARTS   AGE
+book-deployment-847d67d5fc-t467k   2/2     Running   0          4h48m
+```            
+
 ## Telepresence
 
 https://www.getambassador.io/docs/telepresence/latest/quick-start
+
+
+![Telepresence Diagram](./telepresence.png)
 
 1. The command I used:
 
@@ -79,6 +104,18 @@ telepresence intercept book-deployment --port 443:443 --env-file ~/example-servi
 
 https://192.168.64.4:30001/api/books
 (see deploy.yaml)
+
+```
+telepresence list
+book-deployment: intercepted
+   Intercept name         : book-deployment
+   State                  : ACTIVE
+   Workload kind          : Deployment
+   Destination            : 127.0.0.1:443
+   Service Port Identifier: 443/TCP
+   Intercepting           : all TCP connections
+```
+
 
 With telepresence status we get: 
 
